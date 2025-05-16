@@ -1,0 +1,3 @@
+[server]
+# Allow up to 2 GB messages (default is 200 MB)
+maxMessageSize = 1000

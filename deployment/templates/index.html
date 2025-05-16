@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Netflix-Style Recommender</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    label { display: block; margin-top: 1rem; }
+    img { border-radius: 8px; }
+    .grid { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .grid img { width: 120px; }
+  </style>
+</head>
+<body>
+  <h1>🍿 Netflix-Style Movie Recommender</h1>
+  <form method="post">
+    <label>
+      Your User ID:
+      <input type="number" name="user_id" value="1" min="1" required>
+    </label>
+    <label>
+      Select Movie:
+      <select name="movie">
+        {% for t in all_titles %}
+          <option value="{{t}}">{{t}}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>
+      # Similar Movies:
+      <input type="number" name="n_similar" value="10" min="1" max="20" required>
+    </label>
+    <label>
+      Per-Genre Picks:
+      <input type="number" name="per_genre" value="3" min="1" max="5" required>
+    </label>
+    <button type="submit">Recommend</button>
+  </form>
+</body>
+</html>

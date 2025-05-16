@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Recommendations for {{input_title}}</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    .poster-main { width: 300px; border-radius:8px; }
+    .grid { display: flex; gap: 1rem; flex-wrap: wrap; margin-top:1rem; }
+    .grid img { width:120px; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <a href="/">◀ Back</a>
+  <h1>{{input_title}} ({{input_year}})</h1>
+  <img src="{{info.poster_url}}" class="poster-main" alt="{{info.title}}">
+  <h2>Predicted Rating: ⭐ {{predicted_rating}}</h2>
+  <p>{{info.overview}}</p>
+
+  {% if info.cast %}
+    <h3>🎭 Top Cast</h3>
+    <p>{{ info.cast[:5]|map(attribute='name')|join(', ') }}</p>
+  {% endif %}
+
+  {% if info.crew %}
+    <h3>🎬 Key Crew</h3>
+    {% set directors = info.crew|selectattr('job','equalto','Director')|map(attribute='name')|list %}
+    {% if directors %}
+      <p>Director(s): {{ directors[:3]|join(', ') }}</p>
+    {% endif %}
+  {% endif %}
+
+  <h3>Similar Movies</h3>
+  <div class="grid">
+    {% for m in similars %}
+      <div>
+        <img src="{{m.poster_url}}" alt="{{m.title}}">
+        <p style="font-size:0.9em;">{{m.title}}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <h3>Top Picks by Genre</h3>
+  {% for genre, pics in genre_picks.items() %}
+    <h4>{{genre}}</h4>
+    <div class="grid">
+      {% for m in pics %}
+        <div>
+          <img src="{{m.poster_url}}" alt="{{m.title}}">
+          <p style="font-size:0.9em;">{{m.title}}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</body>
+</html>
