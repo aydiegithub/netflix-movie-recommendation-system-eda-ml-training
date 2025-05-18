@@ -119,4 +119,7 @@ python app/main.py
 
 
 ## 📞 Contact
-   business@aydie.in / aditya@aydie.in / +91 9036 4694 92
+   Aditya Dinesh K
+   business@aydie.in / aditya@aydie.in
+   +91 9036 4694 92
+   aydie.in
