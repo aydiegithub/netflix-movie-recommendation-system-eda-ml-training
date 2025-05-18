@@ -1,93 +1,127 @@
-# netflix-movie-recommendation-system-eda-ml-training
+# 🎬 Netflix-Style Movie Recommendation System
 
+This project is a personalized movie recommendation system inspired by Netflix. It leverages collaborative filtering techniques, integrates with The Movie Database (TMDB) API for enriched movie details, and offers both Streamlit and Flask web interfaces for user interaction.
 
+---
 
-## Getting started
+## 📌 Features
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- ^[**Data Preprocessing**: Cleaned and merged datasets including movie details, user ratings, and tags.]({"attribution":{"attributableIndex":"460-1"}})
+- ^[**Feature Engineering**: Applied one-hot encoding to movie tags for genre classification.]({"attribution":{"attributableIndex":"460-2"}})
+- ^[**Model Training**: Utilized the Surprise library's Singular Value Decomposition (SVD) for collaborative filtering.]({"attribution":{"attributableIndex":"460-3"}})
+- ^[**Model Export**: Saved trained models and dataframes for efficient loading and inference.]({"attribution":{"attributableIndex":"460-4"}})
+- ^[**TMDB Integration**: Fetched movie posters, descriptions, and crew information using TMDB API.]({"attribution":{"attributableIndex":"460-5"}})
+- ^[**Web Interface**: Developed user-friendly interfaces using Streamlit and Flask.]({"attribution":{"attributableIndex":"460-6"}})
+- ^[**Deployment**: Deployed the application on Google Cloud Run using Docker.]({"attribution":{"attributableIndex":"460-7"}})
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+---
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## 🗂️ Project Structure
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/aydie/netflix-movie-recommendation-system-eda-ml-training.git
-git branch -M main
-git push -uf origin main
+netflix-recommender/
+├── data/
+│   ├── movies.csv
+│   ├── ratings.csv
+│   ├── tags.csv
+│   └── movies.parquet
+├── models/
+│   ├── SVD.joblib
+│   ├── NNLatent.joblib
+│   └── NNLatentDataFrame.pkl
+├── app/
+│   ├── main.py
+│   ├── tmdb.py
+│   └── streamlit_app.py
+├── requirements.txt
+├── Dockerfile
+└── README.md
 ```
 
-## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/aydie/netflix-movie-recommendation-system-eda-ml-training/-/settings/integrations)
 
-## Collaborate with your team
+---
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+## ⚙️ Setup Instructions
 
-## Test and Deploy
+1. **Clone the Repository**:
 
-Use the built-in continuous integration in GitLab.
+   ```bash
+   git clone https://github.com/yourusername/netflix-recommender.git
+   cd netflix-recommender
+   ```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+2. **Create a Virtual Environment**:
 
-***
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-# Editing this README
+3. **Install Dependencies**:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Suggestions for a good README
+4. **Set TMDB API Key**:
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+   Obtain an API key from [TMDB](https://www.themoviedb.org/documentation/api) and set it as an environment variable:
 
-## Name
-Choose a self-explaining name for your project.
+   ```bash
+   export TMDB_API_KEY='your_api_key'  # On Windows: set TMDB_API_KEY=your_api_key
+   ```
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+---
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## 🚀 Running the Application
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+### Option 1: Streamlit Interface
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+^[Provides an interactive web interface for movie recommendations.]({"attribution":{"attributableIndex":"1513-8"}})
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+```bash
+streamlit run app/streamlit_app.py
+```
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+- ^[Access the app at `http://localhost:8501/`.]({"attribution":{"attributableIndex":"2303-0"}})
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### Option 2: Flask Interface
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+^[Offers a web application using Flask framework.]({"attribution":{"attributableIndex":"2401-1"}})
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+```bash
+python app/main.py
+```
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+- ^[Access the app at `http://localhost:5000/`.]({"attribution":{"attributableIndex":"2484-0"}})
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+---
 
-## License
-For open source projects, say how it is licensed.
+## 📦 Deployment on Google Cloud Run
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+1. **Build Docker Image**:
+
+   ```bash
+   docker build -t netflix-recommender .
+   ```
+
+2. **Deploy to Google Cloud Run**:
+
+   Follow [Google Cloud Run deployment guide](https://cloud.google.com/run/docs/deploying) to deploy the Docker image.
+
+3. **Set Environment Variables**:
+
+   Ensure `TMDB_API_KEY` is set in the Cloud Run service settings.
+
+4. **Access the Application**:
+
+   Once deployed, access the application via the URL provided by Google Cloud Run.
+
+---
+
+## 📝 Acknowledgments
+
+- ^[[TMDB API](https://www.themoviedb.org/documentation/api) for movie data and images.]({"attribution":{"attributableIndex":"2566-9"}})
+- ^[[Surprise Library](http://surpriselib.com/) for building the recommendation engine.]({"attribution":{"attributableIndex":"2566-10"}})
+- ^[[Streamlit](https://streamlit.io/) and [Flask](https://flask.palletsprojects.com/) for web interfaces.]({"attribution":{"attributableIndex":"2566-11"}})
