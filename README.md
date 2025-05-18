@@ -119,7 +119,9 @@ python app/main.py
 
 
 ## 📞 Contact
-   Aditya Dinesh K
-   business@aydie.in / aditya@aydie.in
-   +91 9036 4694 92
-   aydie.in
+
+**Aditya Dinesh K**  
+Founder of Aydie’s Avenue  
+📧 [business@aydie.in](mailto:business@aydie.in) / [aditya@aydie.in](mailto:aditya@aydie.in)  
+📞 +91 9036 4694 92  
+🌐 [aydie.in](https://aydie.in)
