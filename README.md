@@ -1,44 +1,35 @@
-# 🎬 Netflix-Style Movie Recommendation System
+# Netflix-Style Movie Recommendation System
 
-This project is a personalized movie recommendation system inspired by Netflix. It leverages collaborative filtering techniques, integrates with The Movie Database (TMDB) API for enriched movie details, and offers both Streamlit and Flask web interfaces for user interaction.
+This project implements a personalized movie recommendation system inspired by Netflix. It combines collaborative filtering (CF) using K-Nearest Neighbors (KNN) with latent features and content-based filtering (CBF) using Singular Value Decomposition (SVD). The system is deployed using Docker and Google Cloud Run for scalable and efficient serving.
 
----
+## 🔍 Project Overview
 
-## 📌 Features
+- **Collaborative Filtering (CF)**: Utilizes KNN with latent features to recommend movies based on user-item interactions.
+- **Content-Based Filtering (CBF)**: Employs SVD to suggest movies similar to those a user has previously liked, based on movie metadata.
+- **Hybrid Approach**: Integrates CF and CBF to provide more accurate and diverse recommendations.
+- **Deployment**: The model is containerized using Docker and deployed on Google Cloud Run for seamless scaling and accessibility.
 
-- ^[**Data Preprocessing**: Cleaned and merged datasets including movie details, user ratings, and tags.]({"attribution":{"attributableIndex":"460-1"}})
-- ^[**Feature Engineering**: Applied one-hot encoding to movie tags for genre classification.]({"attribution":{"attributableIndex":"460-2"}})
-- ^[**Model Training**: Utilized the Surprise library's Singular Value Decomposition (SVD) for collaborative filtering.]({"attribution":{"attributableIndex":"460-3"}})
-- ^[**Model Export**: Saved trained models and dataframes for efficient loading and inference.]({"attribution":{"attributableIndex":"460-4"}})
-- ^[**TMDB Integration**: Fetched movie posters, descriptions, and crew information using TMDB API.]({"attribution":{"attributableIndex":"460-5"}})
-- ^[**Web Interface**: Developed user-friendly interfaces using Streamlit and Flask.]({"attribution":{"attributableIndex":"460-6"}})
-- ^[**Deployment**: Deployed the application on Google Cloud Run using Docker.]({"attribution":{"attributableIndex":"460-7"}})
+## 📦 Technologies Used
 
----
+- **Python**: Programming language for data processing and model development.
+- **Pandas**: Data manipulation and analysis.
+- **Scikit-learn**: Machine learning algorithms and utilities.
+- **Flask**: Web framework for serving the recommendation model.
+- **Streamlit**: Interactive web interface for user interaction.
+- **Docker**: Containerization of the application.
+- **Google Cloud Run**: Serverless platform for deploying the containerized application.
 
-## 🗂️ Project Structure
+## 📁 Repository Structure
 
 ```
-netflix-recommender/
-├── data/
-│   ├── movies.csv
-│   ├── ratings.csv
-│   ├── tags.csv
-│   └── movies.parquet
-├── models/
-│   ├── SVD.joblib
-│   ├── NNLatent.joblib
-│   └── NNLatentDataFrame.pkl
-├── app/
-│   ├── main.py
-│   ├── tmdb.py
-│   └── streamlit_app.py
-├── requirements.txt
-├── Dockerfile
-└── README.md
+├── deployment/             # Docker and deployment scripts
+├── training/               # Model training scripts
+├── main.ipynb              # Jupyter notebook for EDA and model training
+├── dataset.txt             # Sample dataset
+├── dataset_summary.txt     # Summary of the dataset
+├── live-demo.txt           # Instructions for accessing the live demo
+└── README.md               # Project documentation
 ```
-
-
 
 ---
 
@@ -46,10 +37,10 @@ netflix-recommender/
 
 1. **Clone the Repository**:
 
-   ```bash
-   git clone https://github.com/yourusername/netflix-recommender.git
-   cd netflix-recommender
-   ```
+```bash
+git clone https://github.com/aydiegithub/netflix-movie-recommendation-system-eda-ml-training.git
+cd netflix-movie-recommendation-system-eda-ml-training
+```
 
 2. **Create a Virtual Environment**:
 
@@ -125,3 +116,7 @@ python app/main.py
 - ^[[TMDB API](https://www.themoviedb.org/documentation/api) for movie data and images.]({"attribution":{"attributableIndex":"2566-9"}})
 - ^[[Surprise Library](http://surpriselib.com/) for building the recommendation engine.]({"attribution":{"attributableIndex":"2566-10"}})
 - ^[[Streamlit](https://streamlit.io/) and [Flask](https://flask.palletsprojects.com/) for web interfaces.]({"attribution":{"attributableIndex":"2566-11"}})
+
+
+## 📞 Contact
+   business@aydie.in / aditya@aydie.in / +91 9036 4694 92
